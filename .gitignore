@@ -1,0 +1,23 @@
+# 虚拟环境
+venv/
+
+# Python 缓存
+__pycache__/
+*.pyc
+*.pyo
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# 测试报告（太大不上传，本地生成）
+reports/allure-results/*
+reports/allure-report/
+
+# 日志
+logs/*.log
+
+# 系统文件
+.DS_Store
+Thumbs.db

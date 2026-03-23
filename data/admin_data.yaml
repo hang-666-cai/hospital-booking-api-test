@@ -1,0 +1,45 @@
+# ===== data/admin_data.yaml =====
+
+# 管理端-添加医院
+hospital:
+  add_success:
+    name: "自动化测试医院"
+    level: "二甲"
+    address: "自动化测试地址123号"
+    phone: "010-99999999"
+    description: "这是通过接口自动化测试创建的医院"
+
+  add_empty_name:
+    name: ""
+    level: "二甲"
+    expected_code: 400
+    expected_msg: "名称不能为空"
+
+  add_duplicate_name:
+    name: "北京协和医院"
+    level: "三甲"
+    expected_code: 400
+    expected_msg: "已存在"
+
+# 管理端-添加科室
+department:
+  add_success:
+    name: "自动化测试科室"
+    description: "自动化测试创建"
+    sort_order: 99
+
+# 管理端-添加医生
+doctor:
+  add_success:
+    name: "自动化测试医生"
+    title: "主治医师"
+    specialty: "自动化测试专科"
+    consultation_fee: 66.00
+
+# 管理端-添加排班
+schedule:
+  add_success:
+    time_period: "morning"
+    total_slots: 25
+    start_time: "08:00"
+    end_time: "12:00"

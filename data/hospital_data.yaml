@@ -1,0 +1,24 @@
+# ===== data/hospital_data.yaml =====
+
+# 搜索测试
+search:
+  by_name:
+    name: "协和"
+    expected_min_count: 1
+
+  by_level:
+    level: "三甲"
+    expected_min_count: 1
+
+  not_found:
+    name: "绝对不存在的医院xyz"
+    expected_count: 0
+
+# 详情测试
+detail:
+  exists:
+    hospital_id: 1
+
+  not_exists:
+    hospital_id: 99999
+    expected_code: 404

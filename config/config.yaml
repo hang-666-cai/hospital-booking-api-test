@@ -1,0 +1,27 @@
+# ===== config/config.yaml =====
+
+# 环境配置
+base_url: "http://127.0.0.1:5000"
+
+# 测试账号
+test_user:
+  username: "zhangsan"
+  password: "123456"
+
+admin_user:
+  username: "admin"
+  password: "admin123"
+
+# 数据库配置
+database:
+  host: "localhost"
+  port: 3306
+  user: "root"
+  password: "123456"
+  database: "hospital_booking"
+  charset: "utf8mb4"
+
+# 日志配置
+log:
+  level: "DEBUG"
+  format: "%(asctime)s | %(levelname)-8s | %(filename)s:%(lineno)d | %(message)s"

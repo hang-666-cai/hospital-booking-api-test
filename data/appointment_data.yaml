@@ -1,0 +1,37 @@
+# ===== data/appointment_data.yaml =====
+
+# 预约挂号数据
+create:
+  # 正常预约
+  success:
+    patient_name: "张三"
+    patient_phone: "13800138001"
+    patient_id_card: "110101199001011234"
+    remark: "头痛三天，需要检查"
+    expected_code: 200
+
+  # 就诊人姓名为空
+  empty_patient_name:
+    patient_name: ""
+    patient_phone: "13800138001"
+    expected_code: 400
+    expected_msg: "姓名不能为空"
+
+  # 手机号为空
+  empty_patient_phone:
+    patient_name: "张三"
+    patient_phone: ""
+    expected_code: 400
+    expected_msg: "手机号不能为空"
+
+# 取消预约
+cancel:
+  # 正常取消
+  success:
+    cancel_reason: "临时有事，下次再约"
+    expected_code: 200
+
+  # 无原因取消
+  no_reason:
+    cancel_reason: ""
+    expected_code: 200
