@@ -12,16 +12,17 @@ pipeline {
     stages {
         stage('拉取代码') {
             steps {
+                echo "开始拉取代码..."
                 checkout scm
             }
         }
 
         stage('安装依赖') {
             steps {
-                sh """
-                python3 -m venv venv
-                . venv/bin/activate
-                pip install --upgrade pip
+                echo "安装 Python 依赖..."
+                bat """
+                python -m venv venv
+                call venv\\Scripts\\activate
                 pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
                 """
             }
@@ -29,13 +30,14 @@ pipeline {
 
         stage('执行测试') {
             steps {
-                sh """
-                . venv/bin/activate
-                if [ "${params.TEST_SCOPE}" = "all" ]; then
+                echo "执行测试: ${params.TEST_SCOPE}"
+                bat """
+                call venv\\Scripts\\activate
+                if "${params.TEST_SCOPE}" == "all" (
                     pytest testcases/ -v --alluredir=${ALLURE_RESULTS} --clean-alluredir
-                else
+                ) else (
                     pytest testcases/ -v -m smoke --alluredir=${ALLURE_RESULTS} --clean-alluredir
-                fi
+                )
                 """
             }
         }
